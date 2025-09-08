@@ -1,1 +1,0 @@
-// Conteúdo do App.tsx gerado anteriormente

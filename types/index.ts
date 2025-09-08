@@ -1,0 +1,1 @@
+// Conteúdo de types/index.ts gerado anteriormente

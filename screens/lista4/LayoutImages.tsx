@@ -1,0 +1,1 @@
+// Conteúdo LayoutImages.tsx

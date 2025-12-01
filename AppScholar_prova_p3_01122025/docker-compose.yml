@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: appscholar
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  grades-api:
+    build: ./api/grades
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/appscholar
+      JWT_SECRET: dev-secret
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - ./api/grades:/usr/src/app
+
+volumes:
+  pgdata:
